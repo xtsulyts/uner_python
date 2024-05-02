@@ -61,12 +61,12 @@ maria = Personal(input("ingrese Nombre: "),
 
 caja = Area("", "", "", "", input("Ingrese area: "))
 caja.alta_empleado(maria)
-walter = Personal(input("ingrese Nombre: "),
+"""walter = Personal(input("ingrese Nombre: "),
                   input("Ingrese apellido: "),
                   int(input("Ingrese nro de dni:")),
                   input("Ingrese el email: "))
 cocina = Area("", "", "", "", input("Ingrese area: "))
-cocina.alta_empleado(walter)
+cocina.alta_empleado(walter)"""
 
 
 
