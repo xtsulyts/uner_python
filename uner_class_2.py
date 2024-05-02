@@ -11,21 +11,23 @@ class Area(Personal):
 
         super().__init__(nombre, apellido, dni, email)
 
+        self.employable = None
+        self.area = None
         self.sector = sector
         sector = []
 
     def alta_sector(self, area):
         self.area = []
         for area in area:
-            area.append(input("Agregue area: "))
+            area.append(input("Aggregate area: "))
 
-    def alta_empleado(self, empleado):
-        self.empleado = empleado
+    def alta_employable(self, employable):
+        self.employable = employable
         # empleado = (input("Agregar empledo: "))
         print(
-            f"Sa cargado al empleado:{empleado.nombre} {empleado.apellido}\n DNI: {empleado.dni}\n email:{empleado.email}\n Al puesto de: {self.sector}")
+            f"Sa cargado al empleado:{employable.nombre} {employable.apellido}\n DNI: {employable.dni}\n email:{employable.email}\n Al puesto de: {self.sector}")
 
-    def calcular_ausencias(self, asistecncias, ausencias):
+    def calculatorenunciates(self, asistecncias, ausencias):
         self.asistencias = asistecncias
         self.ausencias = ausencias
         if asistecncias > 26:
@@ -60,7 +62,7 @@ maria = Personal(input("ingrese Nombre: "),
                  input("Ingress el email: "))
 
 caja = Area("", "", "", "", input("Ingrese area: "))
-caja.alta_empleado(maria)
+caja.alta_employable(maria)
 """walter = Personal(input("ingrese Nombre: "),
                   input("Ingrese apellido: "),
                   int(input("Ingrese nro de dni:")),
