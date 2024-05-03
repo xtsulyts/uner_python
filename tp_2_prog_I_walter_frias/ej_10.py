@@ -11,5 +11,26 @@ print("")
 print("##### EJERCICIO 10 #####")
 print("")
 
+def buscar_impares (numero):
+    numero = numero
+    for impares in range(numero):
+        impares= impares + 1
+        i = impares
+        i = range(1, 1, 10)
+        
+        print(f"Los numeros impares son {i}")
+
+buscar_impares(numero =(int(input("Ingrese un numero: "))))
+
+
+
+
+# Ejemplo de uso
+
+
+
+# Devolvemos el contador
+
+
 print("")
-print("##### FIN DEL PROGRAMA #####"
+print("##### FIN DEL PROGRAMA #####")

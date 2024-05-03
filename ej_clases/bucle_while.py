@@ -1,5 +1,7 @@
 import random
 
+### Juego adivina en numero ###
+
 numero_secreto = random.randint(1, 100)
 intentos = 0
 adivinado = False

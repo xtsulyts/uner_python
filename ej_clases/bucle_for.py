@@ -1,8 +1,4 @@
-
-
-
-
-
+### TABLA DEL 2 ###
 x = 100
 
 for i in range(x):

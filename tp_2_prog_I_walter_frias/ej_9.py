@@ -5,7 +5,7 @@ en que ambos números son iguales."""
 
 
 print("")
-print("##### EJERCICIO 8 #####")
+print("##### EJERCICIO 9 #####")
 print("")
 
 def comparar_numeros(a, b):
