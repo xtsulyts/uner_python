@@ -3,7 +3,7 @@
 
 
 
-x = 5
+x = 100
 
 for i in range(x):
     i = i +1
@@ -11,3 +11,7 @@ for i in range(x):
     grafico = 2
     indice = i
     print(f"{grafico}x {indice}={tabla}")
+
+    for i in range(100, 200
+                   ):
+        print(i)

@@ -1,3 +1,9 @@
+
+
+
+""" Ejercicio de practica, herencia de clase, super class"""
+
+
 class Personal:
     def __init__(self, nombre: object, apellido: object, dni: object, email: object) -> object:
         self.nombre = nombre
@@ -56,11 +62,13 @@ class Sueldo(Area):
         self.categoria_a = categoria_c
 
 
+#Objeto Persona
 maria = Personal(input("ingrese Nombre: "),
                  input("Ingrese apellido: "),
                  int(input("Ingrese nro de dni:")),
                  input("Ingress el email: "))
 
+#Objeto caja
 caja = Area("", "", "", "", input("Ingrese area: "))
 caja.alta_employable(maria)
 """walter = Personal(input("ingrese Nombre: "),
