@@ -9,7 +9,7 @@ print("")
 
 
 def iprecion_numeros():
-    for imprecion in range(100, 200):
+    for imprecion in range(101, 200):
         print(imprecion)
         print(f"{imprecion}")
 

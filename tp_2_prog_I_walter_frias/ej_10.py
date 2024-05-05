@@ -12,13 +12,14 @@ print("##### EJERCICIO 10 #####")
 print("")
 
 def buscar_impares (numero):
+    print("Los numeros impares son:")
     numero = numero
     for impares in range(numero):
-        impares= impares + 1
-        i = impares
-        i = range(1, 1, 10)
-        
-        print(f"Los numeros impares son {i}")
+        impares = impares + 1
+        numeros_pares = impares % 2
+        imprecion = numeros_pares
+        if imprecion == 0:
+            print(impares, end = ",")
 
 buscar_impares(numero =(int(input("Ingrese un numero: "))))
 
