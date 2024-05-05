@@ -1,4 +1,13 @@
+
+
+frase = range(20)
+frase = list(frase)
+print(frase)
+
+
+"""
 for i in range(0, 20, 2):
+<<<<<<< HEAD
     print(i)
     
     
@@ -13,3 +22,6 @@ print(cadena_con_f)
 print(cadena_sin_f)
 #print(cadena_spliteada)
 #print(listadro_enteros)  # Imprime
+=======
+    print(i)  # Imprime """
+>>>>>>> bb94d503faf1360cf16004aa772ef0b357f94b15
