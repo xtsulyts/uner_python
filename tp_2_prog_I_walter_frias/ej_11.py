@@ -8,15 +8,19 @@ print("##### EJERCICIO 8 #####")
 print("")
 
 
-vocales = ("a", "e", "i", "o", "u")
-letras = ""
-def cant_vocals(frase):
+letras_seleccionadas = ""
+def cantidad_vocales(frase):
     frase = frase
-    for letras in frase:
-        letras = frase
-        print(f"La frase tiene {letras}")
-
-cant_vocals(frase = input("Escriba una frase: "))
+    for imprecion in frase:
+        if imprecion in ["a", "e", "i", "o", "u"]:
+            #si en la iteracion encuentra una letra de las seleccionadas en la lista cargarla en impresion y guardarla en letras vocales
+            letras_vocales =  letras_seleccionadas + imprecion
+            print(letras_seleccionadas)
+        #if imprecion == vocales:
+    #if vocales in frase:
+            print(letras_vocales)
+            #print(imprecion)
+cantidad_vocales(frase = input("Ingrese una frase: "))
 
 
 print("")
