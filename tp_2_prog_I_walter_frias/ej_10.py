@@ -17,9 +17,11 @@ def buscar_impares (inicio, numero):
     numero = numero
     for impares in range(inicio, numero + 1, 2):
         impares = impares
-        impares_cuanta_atras = impares
         print(impares, end=",")
-    for i in range(inicio, numero + 1, 2):
+        
+
+    for i in range(numero, impares):
+        i = i -1
         print(i, end=",")
 
 

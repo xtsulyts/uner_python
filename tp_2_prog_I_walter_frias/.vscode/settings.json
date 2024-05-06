@@ -1,0 +1,5 @@
+{
+    "terminal.explorerKind": "integrated",
+    "terminal.integrated.defaultProfile.linux": "sh",
+    "terminal.integrated.tabs.defaultIcon": "logo-github"
+}
