@@ -12,17 +12,6 @@ letras_seleccionadas = ""
 def cantidad_vocales(frase):
     letras_seleccionadas = ""
     frase = frase
-<<<<<<< HEAD
-    for imprecion in frase:
-        if imprecion in ["a", "e", "i", "o", "u"]:
-            #si en la iteracion encuentra una letra de las seleccionadas en la lista cargarla en impresion y guardarla en letras vocales
-            letras_vocales =  letras_seleccionadas + imprecion
-            print(letras_seleccionadas)
-        #if imprecion == vocales:
-    #if vocales in frase:
-            print(letras_vocales)
-            #print(imprecion)
-=======
     for i in frase:
         if i in ["a", "e", "i", "o", "u"]: #si en la iteracion encuentra una letra de las seleccionadas en la lista cargarla en impresion y guardarla en letras vocales
             letras_vocales =  letras_seleccionadas + i
@@ -32,7 +21,6 @@ def cantidad_vocales(frase):
             print(letras_vocales, end = ",")
             print(numer_letras)
             
->>>>>>> 4d56230cd56208c68ab15f8e0623b27cc3859588
 cantidad_vocales(frase = input("Ingrese una frase: "))
 print(letras_seleccionadas)
 
