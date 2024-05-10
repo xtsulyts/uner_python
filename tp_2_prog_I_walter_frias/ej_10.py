@@ -16,15 +16,19 @@ def buscar_impares (inicio, numero):
     inicio = inicio
     numero = numero
     for impares in range(inicio, numero + 1, 2):
-        impares = impares
+        c = impares -1
         print(impares, end=",")
+        print(c)
+    
         
 
-    for i in range(numero, impares):
+    """for i in range(numero, impares):
         i = i -1
-        print(i, end=",")
-
-
-
+        print(i, end=",")"""
 
 buscar_impares(inicio = 1, numero = (int(input("Ingrese un numero: "))))
+
+
+print("")
+print("##### FIN DEL PROGRAMA #####")
+print("")
