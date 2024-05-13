@@ -12,19 +12,47 @@ print("##### EJERCICIO 10 #####")
 print("")
 
 def buscar_impares (inicio, numero):
-    print("Los numeros impares son:")
     inicio = inicio
     numero = numero
-    for impares in range(inicio, numero + 1, 2):
-        c = impares -1
-        print(impares, end=",")
-        print(c)
+    print(f"A. Los numeros impares desde el 1 al {numero} son: ")
+    if numero <= 0:#Con if verifico que el numero ingresado sea valido
+        print("El numero ingresado no es valido vuelva a ingresar un numero entero positivo.")
+        buscar_impares(inicio = 1, numero = (int(input("Ingrese un numero: "))))#En el caso de no ingresar un numero valido se llama a la funcion de buscar pares de forma recursiva.
+    else:
+        impares = "" #Si el numero es valido inicializo una variable vacia que almacenara un strig.
     
-        
+    for i in range(inicio, numero + 1, 2):#Con el bucle se va a iterar desde el numro  1 hasta el numero ingresado, se indica un salto de 2 para solo guardar solo impares
+        impares += str(i) + "," #Imprimo los numeros impares
 
-    """for i in range(numero, impares):
-        i = i -1
-        print(i, end=",")"""
+    impares = impares[:-1]#Elimino la ultima coma de la lista
+   
+    print(impares)
+    print("")
+
+    cuenta_atras = "" #Creo una veriable para guardar la cuanta atras
+    cuenta_atras = impares[::-1]#Le digo que es igual a impares epezando desde el ultimo caracter.
+       
+    """for i in range(numero, inicio, -1):
+        cuenta_atras += str(i) + ",
+    
+    cuenta_atras = cuenta_atras[:-1]"""
+
+    print(f"B. La cuanta atras de los numeros impares desde {numero} al {inicio} son: ")#Imprimo la cuenta atras de impares.
+    print(f"{cuenta_atras} ")
+    print("")
+
+    if numero <= 1:#
+        return False
+    for primo in range(2, numero // 2 + 1):
+        if numero % primo == 0:
+            print("El numero no es primo")
+            return False
+    print(f"C. El numero {numero} es primo.")
+
+
+    
+      
+       
 
 buscar_impares(inicio = 1, numero = (int(input("Ingrese un numero: "))))
 
