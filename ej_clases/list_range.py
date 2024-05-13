@@ -1,8 +1,13 @@
 
 
 frase = range(20)
-frase = list(frase)
+#frase = list(frase)
+f = frase
+i = list(f)
+
 print(frase)
+print(f)
+print(i)
 
 
 """

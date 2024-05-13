@@ -41,13 +41,21 @@ def buscar_impares (inicio, numero):
     print(f"{cuenta_atras} ")
     print("")
 
-    if numero <= 1:#
+    if numero <= 1:
         return False
     for primo in range(2, numero // 2 + 1):
         if numero % primo == 0:
-            print("El numero no es primo")
+            print(f"C. El numero {numero} no es primo")
             return False
     print(f"C. El numero {numero} es primo.")
+    print("")
+
+
+    for factorial in range(numero -1):
+        factorial = numero  =+ factorial +1
+        resutado = numero * factorial
+
+    print(f"D. El factorial de {numero} es {resutado}")
 
 
     
