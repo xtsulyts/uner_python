@@ -7,10 +7,11 @@ print("")
 print("##### EJERCICIO 11 #####")
 print("")
 
-contar = ""
+
 letras_seleccionadas = ""
 def cantidad_vocales(frase):
     letras_seleccionadas = ""
+    contador = letras_seleccionadas.count(frase)
     frase = frase
     for i in frase:
         if i in ["a", "e", "i", "o", "u"]: #si en la iteracion encuentra una letra de las seleccionadas en la lista cargarla en impresion y guardarla en letras vocales
@@ -21,15 +22,15 @@ def cantidad_vocales(frase):
             #c = letras_vocales.count(letras_vocales)
             letras_vocales = letras_vocales [::-1]
             #print(letras_vocales, end = ",")
-            print(f"{letras_vocales},")
+            print(f"{letras_vocales}")
         
     for i in frase:
         if i in ["a", "e", "i", "o", "u"]: #si en la iteracion encuentra una letra de las seleccionadas en la lista cargarla en impresion y guardarla en letras vocales
             letras_vocales =  letras_seleccionadas + i
-            #contardor = letras_seleccionadas + i
-            numer_letras = letras_vocales.count(letras_vocales + letras_seleccionadas)
+            contardor = contador
+            #numer_letras = letras_vocales.count(letras_vocales + letras_seleccionadas)
             #c = contardor.count(contardor)
-        print(f"La candidad de vocales son {numer_letras}")
+    print(f"La candidad de vocales son {contardor}")
         #print(c)
 
             
