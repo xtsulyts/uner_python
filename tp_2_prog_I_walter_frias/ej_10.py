@@ -11,8 +11,8 @@ print("")
 print("##### EJERCICIO 10 #####")
 print("")
 
-def buscar_impares (inicio, numero):
-    inicio = inicio
+def buscar_impares ( numero):
+    inicio = 1
     numero = numero
     print(f"A. Los numeros impares desde el 1 al {numero} son: ")
     if numero <= 0:#Con if verifico que el numero ingresado sea valido
@@ -22,7 +22,8 @@ def buscar_impares (inicio, numero):
         impares = "" #Si el numero es valido inicializo una variable vacia que almacenara un strig.
     
     for i in range(inicio, numero + 1, 2):#Con el bucle se va a iterar desde el numro  1 hasta el numero ingresado, se indica un salto de 2 para solo guardar solo impares
-        impares += str(i) + "," #Imprimo los numeros impares
+        #impares += str(i) + "," #Imprimo los numeros impares
+        impares += f"{str(i)},"
 
     impares = impares[:-1]#Elimino la ultima coma de la lista
    
@@ -50,19 +51,28 @@ def buscar_impares (inicio, numero):
     print(f"C. El numero {numero} es primo.")
     print("")
 
+    #No puedo saccar el factorial XD
+    """if numero == 0:
+        return 1
+    else:
+        recursiva = buscar_impares(numero -1)
+        factorial = int(numero) * int(recursiva)
+        print(factorial)
+
+
 
     for factorial in range(numero -1):
         factorial = numero  =+ factorial +1
-        resutado = numero * factorial
+        resutado = numero * factorial"""
 
-    print(f"D. El factorial de {numero} es {resutado}")
+    print(f"D. El factorial de {numero} es ")
 
 
     
       
        
 
-buscar_impares(inicio = 1, numero = (int(input("Ingrese un numero: "))))
+buscar_impares(numero = (int(input("Ingrese un numero: "))))
 
 
 print("")
