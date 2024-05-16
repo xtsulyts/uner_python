@@ -11,8 +11,7 @@ print("")
 
 #Defino una funcion que reciba como parametro el importe de la factura y el impuesto que se la aplicara
 def calacular_iva(fc, impuesto):
-     fc = fc
-     impuesto = impuesto
+     
      if impuesto <= 0 : #Si el impuesto es igual o menor a 0 se sumara el IVA 21% automaticamente y mostrata el valor en pantalla.
           fc = fc / 100 * 21 + fc
           print("El porcentaje de impuestos es incorrecto, se aplico IVA 21%")
