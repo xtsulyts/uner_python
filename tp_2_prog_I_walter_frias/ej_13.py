@@ -16,23 +16,20 @@ def cursos(nombre, sexo):
     nombre = nombre
     inicial = nombre[0].lower()
 
-    if sexo.lower() != femenino and masculino:
-        print("Error")
-        cursos(nombre=input("Ingrese su nobre: "), sexo=input("Ingrese su genero: "))
-
-    elif inicial in mujeres and sexo.lower() == femenino:
+    if inicial in mujeres and sexo.lower() == femenino:
         print(f"La alumna {nombre} pertenece al grupo A.")
         
     elif inicial in hombres and sexo.lower() == masculino:
         print(f"El alumno {nombre} pertenece al grupo A.")
-        return True
-
-    #elif sexo.lower() != femenino:
-    #elif femenino or masculino != sexo.lower():
-        #print("Solo puedes elegir entre femenino y masculino, ingresa nuevamente tus datos.")
-        #cursos(nombre=input("Ingrese su nobre: "), 
-            #sexo=input("Ingrese su genero: "))   
-        #return False
+    
+    
+    elif sexo.lower() != "masculino":
+        print(f"Error el genero {sexo} no existe.")
+        cursos(nombre=input("Ingrese su nobre: "), sexo=input("Ingrese su genero: "))
+    
+    elif sexo.lower() != "femenino":
+        print(f"Error el genero {sexo} no existe.")
+        cursos(nombre=input("Ingrese su nobre: "), sexo=input("Ingrese su genero: "))
     
     else:
         print(f"{nombre} tus datos indican que perteneces al grupo B.")

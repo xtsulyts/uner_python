@@ -23,7 +23,7 @@ def buscar_impares ( numero):
     
     for i in range(inicio, numero + 1, 2):#Con el bucle se va a iterar desde el numro  1 hasta el numero ingresado, se indica un salto de 2 para solo guardar solo impares
         #impares += str(i) + "," #Imprimo los numeros impares
-        impares += f"{str(i)},"
+        impares += f"{(i)},"
 
     impares = impares[:-1]#Elimino la ultima coma de la lista
    
