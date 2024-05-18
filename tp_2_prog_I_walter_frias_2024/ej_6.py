@@ -6,9 +6,9 @@ print("")
 print("##### EJERCICIO 6 #####")
 print("")
 
-#Funcion que recibe una variable que almacene un string como parametro.
+#Funcion que recibe una variable que almacena un string como parametro.
 def contador(palabra):
-    for mostrar in range(10): #El for recorrera 10 veces guardando en la variable mortrar la palabra que se ingrese como argumeto cuando se llame a la funcion.
+    for mostrar in range(10): #El for recorrera 10 veces guardando en la variable mostrar la palabra que se ingrese como argumeto cuando se llame a la funcion.
         mostrar = palabra
         print(f"{mostrar}")
 

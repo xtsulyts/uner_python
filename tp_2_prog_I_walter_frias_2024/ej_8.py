@@ -10,7 +10,7 @@ print("")
 
 def preguntar_edad(edad):#Funcion que recibe la edad expresada en un numero entero.
 
-    if edad > 120 or edad <= 0:#Con if defino los limites de edades aceptadas, mayor de 120 y menores a 0 no seran validas y se llamara de forma recursiva a la fincion paea volver a preguntar.
+    if edad > 120 or edad <= 0:#Con if defino los limites de edades aceptadas, mayor de 120 y menores a 0 no seran validas y se llamara de forma recursiva a la funcion para volver a preguntar.
         print("No es una edad valida ingrese una edad valida: ")
         preguntar_edad(int(input("Ingrese su edad: ")))#Llanada recursiva
 

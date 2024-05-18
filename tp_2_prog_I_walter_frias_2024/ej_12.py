@@ -8,6 +8,7 @@ print("")
 print("##### EJERCICIO 12 #####")
 print("")
 
+#Variables para almacenar el dato que sera comprobado en la funcion
 lunes = "lunes"
 martes = "martes"
 miercoles = "miercoles"
@@ -16,6 +17,9 @@ viernes = "viernes"
 sabado = "sabado"
 domingo = "domingo"
 
+#En este ejercicio comprobe que argumento ingresado sea igual a algunos de los dias de la semana
+#en ese caso puse mensajes ramdon con cada coincidencia en el else si ninguna
+#condicion se cumple llama a la funcion de forma recursiva
 def dia_semana (dia):
     print(f"Elegiste el dia {dia}!!!")
     if dia.lower() == lunes:
@@ -47,3 +51,4 @@ dia_semana(dia=input("Hola, ingresa un dia de la semana: "))
 
 print("")
 print("##### FIN DEL PROGRAMA #####")
+print("")
