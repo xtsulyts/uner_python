@@ -27,12 +27,13 @@ def buscar_impares ( numero):
         buscar_impares(inicio = 1, numero = (int(input("Ingrese un numero: "))))#En el caso de no ingresar un numero valido se llama a la funcion de buscar pares de forma recursiva.
     else:
         impares = [] #Si el numero es valido inicializo una variable vacia que almacenara un strig.
-    
+        impares_2 = impares
+        impares_2 = ""
     for i in range(inicio, numero + 1, 2):#Con el bucle se va a iterar desde el numro  1 hasta el numero ingresado, se indica un salto de 2 para solo guardar solo impares
-        #impares += str(i) + "," #Imprimo los numeros impares
-        impares +=f"{i}"
+        impares_2 += str(i) + "," #Imprimo los numeros impares
     impares = impares
     print(f"{impares}")
+    print(f"{impares_2}")
     print("")
 
     #Cuenta atras
