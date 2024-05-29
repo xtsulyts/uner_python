@@ -12,8 +12,8 @@ print("#### EJERCICIO 2 ####")
 print("")
 
 paises = ["Argentina", "Brasil", "Bolibia", "Paraguay", "Venezuela"]
-def ej_4_1():
-    print(f"La lista original co tiene estos paises: \n {paises}")
+def ej_4_0():
+    print(f"La lista original contiene estos paises: \n {paises}")
     cantidad_elmentos = len(paises)
     print("")
     print(f"a. La cantidad de elementos  de la lista:{cantidad_elmentos}")
@@ -22,6 +22,7 @@ def ej_4_1():
     #tercer_elemento = paises[2]
     #cuerto_elemento = paises[3]
     ultimo_elemento = paises[4]
+
     print("")
     print(f"b. El primer elemento es {primer_elemento}. \n y el ultimo es {ultimo_elemento}.")
     print("")
@@ -29,7 +30,6 @@ def ej_4_1():
     print(f"c. El resto de la lista es : {resto}.")
     print("")
 
-    
     #coincidencia = paises[0] or paises[1] or paises[2] or paises[3]
     for _ in paises:
         ingresar_pais = input("d. Ingrese un pais: ")
@@ -37,15 +37,11 @@ def ej_4_1():
         if ingresar_pais == paises[0]:
             coincidencia_1 = paises.index(ingresar_pais)
             print(f"La coincidencia es Argentina y su indice es {coincidencia_1}.")
-            """if coincidencia_1 == paises[0]:
-                ingreso_indice = int(input("Ingrese un numero:"))
-                ingreso_indice == 0
-                paises = paises.pop(0)
-                print(paises)"""
             return
         elif ingresar_pais == paises[1]:
             coincidencia_2 = paises.index(ingresar_pais)
             print(f"La coincidencia es Brasil y su indice es {coincidencia_2}.")
+            return
         elif ingresar_pais == paises[2]:
             coincidencia_3 = paises.index(ingresar_pais)
             print(f"La coincidencia es Bolibia y su indice es {coincidencia_3}.")
@@ -62,41 +58,45 @@ def ej_4_1():
             print(f"El pais {ingresar_pais} no esta en la lista.")
             return
 
-ej_4_1()
+ej_4_0()
 print("")
-def ej_4_2():
+
+def ej_4_1():
     ingreso_indice = int(input("e. Ingrese un numero: "))
     if ingreso_indice <= 4:
         ingreso_indice = ingreso_indice
         ingreso_indice == paises[0] or paises[1] or paises[2] or paises[3] or paises[4]
         ingreso_indice = paises.pop(ingreso_indice)
         #print(ingreso_indice) 
-        print(f"El indice ingresado perenece al pais {ingreso_indice}, sera removido de la lista.")
+        print(f"El indice ingresado pertenece al pais {ingreso_indice}, sera removido de la lista.")
         print(f"Lista actualizada sin {ingreso_indice} es: \n {paises}")
 
-    #elif ingreso_indice == paises[0] or paises[1] or paises[2] or paises[3] or paises[4]:
-        #ingreso_indice = paises.pop(ingreso_indice)
-        #print(ingreso_indice) 
-        #print(f"El indice ingresado perenece al pais {ingreso_indice}, sera removido de la lista")
-        #print(f"Lista actualizada sin {ingreso_indice} es: \n {paises}")"""
+    
     else:
-        print(f"El numero {ingreso_indice} no existe en la lista") 
+        print(f"El numero {ingreso_indice} no existe en la lista.") 
 
-ej_4_2()
+ej_4_1()
 print("")
 
-def  ej_4_3():
-    lista_reverso = paises
-    lista_reverso = lista_reverso.reverse()
+def  ej_4_2():
+    lista_reverso = paises[::-1]
     print(f"f. La lista  al reverso quedaria asi: \n {lista_reverso}")
     print("")
-    borrar_lista = paises
-    borrar_lista = borrar_lista.remove(pa)
-    print(borrar_lista)
+    borrar_lista = paises.clear()
+    paises.clear()
+    print(f"Vaciar la lista {paises}. ")
 
 
-ej_4_3()
+ej_4_2()
 
 print("")
 print("#### FIN DEL PROGRAMA ####")
 print("")
+
+
+
+#elif ingreso_indice == paises[0] or paises[1] or paises[2] or paises[3] or paises[4]:
+        #ingreso_indice = paises.pop(ingreso_indice)
+        #print(ingreso_indice) 
+        #print(f"El indice ingresado perenece al pais {ingreso_indice}, sera removido de la lista")
+        #print(f"Lista actualizada sin {ingreso_indice} es: \n {paises}")"""
