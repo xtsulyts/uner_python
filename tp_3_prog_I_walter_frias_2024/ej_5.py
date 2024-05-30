@@ -9,14 +9,62 @@ d. Calcular la multiplicación de todos los números de la lista.
 e. Contar los valores pares e impares.
 f. Remover los elementos repetidos."""
 
-def cargar_datos():
-    ingreso_numeros = input("Ingrese un numero: ")
-    fin = "fin"
-    lista_a = []
-    
-    while ingreso_numeros == fin:
-      
-       
-        lista_a = lista_a.append(ingreso_numeros)
-        print(lista_a)
-cargar_datos()
+
+print("")
+print("#### EJERCICIO 5 ####")
+print("")
+
+numeros = []
+print("Ingrese números enteros uno por uno. Cuando haya terminado, escriba 'fin'.")
+
+while True:
+    entrada = input("Ingrese un número entero o 'fin' para terminar: ")
+    if entrada.lower() == 'fin':
+        break
+    if entrada.isdigit():
+        numeros.append(int(entrada))
+    else:
+        print("Por favor, ingrese un número entero válido.")
+
+# Paso 2: Determinar el máximo
+maximo = max(numeros) if numeros else None
+
+# Paso 3: Obtener el segundo máximo
+segundo_maximo = None
+if len(numeros) > 1:
+    numeros_unicos = set(numeros)
+    numeros_unicos.remove(maximo)
+    segundo_maximo = max(numeros_unicos)
+
+# Paso 4: Determinar el mínimo
+minimo = min(numeros) if numeros else None
+
+# Paso 5: Calcular la multiplicación de todos los números
+producto = 1
+for num in numeros:
+    producto *= num
+
+# Paso 6: Contar los valores pares e impares
+pares = sum(1 for num in numeros if num % 2 == 0)
+impares = len(numeros) - pares
+
+# Paso 7: Remover los elementos repetidos
+numeros_sin_repetidos = list(set(numeros))
+
+# Mostrar resultados
+print("Resultados:")
+print("Máximo:", maximo)
+print("Segundo máximo:", segundo_maximo)
+print("Mínimo:", minimo)
+print("Producto de todos los números:", producto)
+print("Cantidad de números pares:", pares)
+print("Cantidad de números impares:", impares)
+print("Lista sin elementos repetidos:", numeros_sin_repetidos)
+
+print("")
+print("#### FIN DEL PROGRAMA ####")
+print("")
+
+
+
+
