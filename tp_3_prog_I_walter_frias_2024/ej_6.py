@@ -23,7 +23,7 @@ def ej_6():
     print("Para salir del programa ingrese la palabra salir")
     
     while True:
-        opcion = input("Seleccione una opción: ")
+        opcion = input("Seleccione una opcion: ")
         
         if opcion == a:
             elemento = input("Ingrese el elemento a agregar al final: ")
@@ -49,7 +49,7 @@ def ej_6():
                 elemento = lista_vacia.pop(0)
                 print(lista_vacia)
             else:
-                print("La lista está vacía, no se puede quitar un elemento.")
+                print("La lista esta vacia, no se puede quitar un elemento.")
         
         #elif opcion == "4":
             #print("Lista actual:", lista)
@@ -59,7 +59,7 @@ def ej_6():
             break
         
         else:
-            print("Opción no válida. Intente nuevamente.")
+            print("Opción no valida. Intente nuevamente.")
         
         print() 
 ej_6()

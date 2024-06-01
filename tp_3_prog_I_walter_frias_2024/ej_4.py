@@ -7,6 +7,10 @@ e. Permitir al usuario ingresar un número igual o menor a la cantidad de elemen
 f. Imprimir la lista en orden inverso. 
 g. Vaciar la lista."""
 
+#En este ej tambien por falta de tiempo no pude soluconar que cambien
+#la primer letra del pais ingresado a mayuscula si lo escribe en minuscula
+#Y que despues del else vuelva a preguntar el pais hasta que se ingrese correctamente.
+
 print("")
 print("#### EJERCICIO 2 ####")
 print("")
@@ -16,7 +20,7 @@ def ej_4_0():
     print(f"La lista original contiene estos paises: \n {paises}")
     cantidad_elmentos = len(paises)
     print("")
-    print(f"a. La cantidad de elementos  de la lista:{cantidad_elmentos}")
+    print(f"a. La cantidad de elementos  de la lista son: {cantidad_elmentos}")
     primer_elemento = paises[0]
     #segundo_elemento = paises[1]
     #tercer_elemento = paises[2]
@@ -33,7 +37,7 @@ def ej_4_0():
     #coincidencia = paises[0] or paises[1] or paises[2] or paises[3]
     for _ in paises:
         ingresar_pais = input("d. Ingrese un pais: ")
-        ingresar_pais = ingresar_pais
+        #ingresar_pais = ingresar_pais.lower()
         if ingresar_pais == paises[0]:
             coincidencia_1 = paises.index(ingresar_pais)
             print(f"La coincidencia es Argentina y su indice es {coincidencia_1}.")
@@ -74,6 +78,7 @@ def ej_4_1():
     
     else:
         print(f"El numero {ingreso_indice} no existe en la lista.") 
+        #return input("Ingrese un pais que axistente en la lista: ")
 
 ej_4_1()
 print("")
@@ -82,7 +87,7 @@ def  ej_4_2():
     lista_reverso = paises[::-1]
     print(f"f. La lista  al reverso quedaria asi: \n {lista_reverso}")
     print("")
-    borrar_lista = paises.clear()
+    #borrar_lista = paises.clear()
     paises.clear()
     print(f"Vaciar la lista {paises}. ")
 

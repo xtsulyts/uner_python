@@ -7,34 +7,32 @@ de la lista de pendientes a la de terminadas.
 Nota: posterior a cada operación deberá mostrar por pantalla el estado actual de ambas
 listas."""
 
+print("")
+print("#### EJERCICIO 7 ####")
+print("")
 
-# Creamos dos listas vacías para almacenar las tareas pendientes y las tareas terminadas
 tareas_pendientes = []
 tareas_terminadas = []
 
-# Función para mostrar el estado actual de ambas listas
-def mostrar_estado():
+def mostrar_listas():
     print("Tareas Pendientes:", tareas_pendientes)
     print("Tareas Terminadas:", tareas_terminadas)
 
-# Función para agregar nuevas tareas pendientes
 def agregar_tarea():
     nueva_tarea = input("Ingrese la nueva tarea pendiente: ")
     tareas_pendientes.append(nueva_tarea)
     print("Se ha agregado la tarea correctamente.")
-    mostrar_estado()
+    mostrar_listas()
 
-# Función para marcar tareas pendientes como terminadas
 def marcar_como_terminada():
     if not tareas_pendientes:
         print("No hay tareas pendientes para marcar como terminadas.")
         return
-    tarea_terminada = tareas_pendientes.pop(0)  # Sacamos la primera tarea de la lista de pendientes
+    tarea_terminada = tareas_pendientes.pop(0) 
     tareas_terminadas.append(tarea_terminada)
     print("Se ha marcado la tarea como terminada.")
-    mostrar_estado()
+    mostrar_listas()
 
-# Función principal del programa
 def main():
     while True:
         print("\nMenú:")
@@ -49,11 +47,17 @@ def main():
         elif opcion == "2":
             marcar_como_terminada()
         elif opcion == "3":
-            mostrar_estado()
+            mostrar_listas()
         elif opcion == "4":
             print("Saliendo del programa...")
             break
         else:
             print("Opción no válida. Por favor, seleccione una opción válida.")
 main()
+mostrar_listas()
+agregar_tarea()
+marcar_como_terminada()
 
+print("")
+print("#### FIN DEL PROGRAMA ####")
+print("")

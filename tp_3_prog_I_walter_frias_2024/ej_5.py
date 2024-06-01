@@ -14,51 +14,42 @@ print("")
 print("#### EJERCICIO 5 ####")
 print("")
 
-numeros = []
-print("Ingrese números enteros uno por uno. Cuando haya terminado, escriba 'fin'.")
+lista_a = []
+print("Ingrese numeros enteros y 'fin' para concluir con la catga de datos.")
 
 while True:
-    entrada = input("Ingrese un número entero o 'fin' para terminar: ")
+    entrada = input("Ingrese un numero entero o 'fin' para terminar: ")
     if entrada.lower() == 'fin':
         break
     if entrada.isdigit():
-        numeros.append(int(entrada))
+        lista_a.append(int(entrada))
     else:
-        print("Por favor, ingrese un número entero válido.")
+        print("Solo podes ingresar numeros enteros.")
 
-# Paso 2: Determinar el máximo
-maximo = max(numeros) if numeros else None
+maximo = max(lista_a) if lista_a else None
+print("Maximo:", maximo)
 
-# Paso 3: Obtener el segundo máximo
 segundo_maximo = None
-if len(numeros) > 1:
-    numeros_unicos = set(numeros)
+if len(lista_a) > 1:
+    numeros_unicos = set(lista_a)
     numeros_unicos.remove(maximo)
     segundo_maximo = max(numeros_unicos)
+    print("Segundo maximo:", segundo_maximo)
+   
+minimo = min(lista_a) if lista_a else None
+print("Minimo:", minimo)
 
-# Paso 4: Determinar el mínimo
-minimo = min(numeros) if numeros else None
-
-# Paso 5: Calcular la multiplicación de todos los números
 producto = 1
-for num in numeros:
+for num in lista_a:
     producto *= num
+print("Producto de todos los numeros:", producto)
 
-# Paso 6: Contar los valores pares e impares
-pares = sum(1 for num in numeros if num % 2 == 0)
-impares = len(numeros) - pares
 
-# Paso 7: Remover los elementos repetidos
-numeros_sin_repetidos = list(set(numeros))
+pares = sum(1 for num in lista_a if num % 2 == 0)
+impares = len(lista_a) - pares
+print("Cantidad de numeros pares:", pares)
 
-# Mostrar resultados
-print("Resultados:")
-print("Máximo:", maximo)
-print("Segundo máximo:", segundo_maximo)
-print("Mínimo:", minimo)
-print("Producto de todos los números:", producto)
-print("Cantidad de números pares:", pares)
-print("Cantidad de números impares:", impares)
+numeros_sin_repetidos = list(set(lista_a))
 print("Lista sin elementos repetidos:", numeros_sin_repetidos)
 
 print("")

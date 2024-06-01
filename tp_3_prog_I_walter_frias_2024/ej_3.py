@@ -4,10 +4,10 @@ debajo la misma lista pero sólo con las frutas que añadió el usuario.
  """
 
 print("")
-print("#### EJERCICIO 2 ####")
+print("#### EJERCICIO 3 ####")
 print("")
 
-def agrega_lista():
+def agregar_a_lista():
     i = 0
     lista = ["banana", "manzana", "pera"]
     lista_nueva = []
@@ -23,12 +23,13 @@ def agrega_lista():
             lista.append(ingreso)
             lista_nueva.append(ingreso)
             i += 1
-    matriz = list(lista), list(lista_nueva)
-    for x in matriz:
-        print(x)
-    print()
+    print(f"Esta es la lista completa: \n {list(lista)} \n Estos son los elementos que se agragaron a la lista original: \n {list(lista_nueva)}")
+    #matriz = list(lista), list(lista_nueva)
+    #for x in matriz:
+       # print(x)
+    #print()
             
-agrega_lista()
+agregar_a_lista()
 
 print("")
 print("#### FIN DEL PROGRAMA ####")
