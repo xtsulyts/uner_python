@@ -1,13 +1,13 @@
-### TABLA DEL 2 ###
-x = 100
+# crea una funcion que permita al usuario ingresar un pais y su capital a una lista vacia llamada paises_capitales
 
-for i in range(x):
-    i = i +1
-    tabla = i * 2
-    grafico = 2
-    indice = i
-    print(f"{grafico}x {indice}={tabla}")
+paises_capitales = []
+paises = []
+capitales = []      
 
-    for i in range(100, 200
-                   ):
-        print(i)
+for i in range(5):
+    inpais =(input("Ingrese el nombre del pais: "))
+    incapital =input("Ingrese la capital del pais: ")
+    paises_capitales.append([inpais,incapital])
+
+print(f"La lista de paises y capitales es: \n{paises_capitales}")      
+
