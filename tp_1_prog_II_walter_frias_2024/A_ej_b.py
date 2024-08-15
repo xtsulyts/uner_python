@@ -5,9 +5,5 @@ en caso contrario"""
 def es_abc(palabra):
     return list(palabra) == sorted(palabra)
 
-palabra = "ljodooacn"
-
-resultado = palabra
-
-resultado = es_abc(palabra)
-
+print(es_abc("abc"))
+print(es_abc("cba"))
