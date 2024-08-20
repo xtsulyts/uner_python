@@ -17,6 +17,7 @@ letras_prohibidas = ['x', 'y', 'z']
 resultado = palabra_no_tiene_letras(palabra, letras_prohibidas)
 
 print(resultado)
+print(f"Las letras prohibidas son: {letras_prohibidas}")
 print("Fin de la ejecución")
 
 
