@@ -12,10 +12,17 @@ meses = anios * 12 + hora_local.tm_mon
 dias = 0
 
 def equivalente_en_dias(hora_local, anio_comienzo, anio_fin):
+    hora_local = time.localtime(time.time())
     bisiesto = 0
     for a_bisiesto in range(anio_comienzo, anio_fin):
         if isleap(a_bisiesto): bisiesto = bisiesto + 1
-    return (bisiesto * 366) + ((anio_fin - anio_comienzo) * 365)    
+    return (bisiesto * 366) + ((anio_fin - anio_comienzo) * 365) 
+    
+#print(bisiesto)
+#print(f"La hora lola es: {hora_local}")
+  
 
 dias = equivalente_en_dias(hora_local, anio_comienzo, anio_fin) + hora_local.tm_mday
-print(dias)
+
+print(f"En {edad} años trascurrieron {dias} dias!!")
+print(f"El año  de inicio es: {anio_comienzo} y el año actual es {anio_fin}")
