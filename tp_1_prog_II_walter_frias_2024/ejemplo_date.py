@@ -1,6 +1,6 @@
 import time
 from calendar import isleap
-
+list
 nombre = input("Ingrese su nombre: ")
 edad = input("Ingrese su edad: ")
 
