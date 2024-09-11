@@ -6,33 +6,16 @@ class Maestro_pizzero :
         self.pizzas_por_cocinar = []
         self.pizzas_por_entregar = []
 
-    def menu_opcines ():
-        opciones = [1,2,3,4]
+    def establecer_nombre (self, nombre):
+        self.nombre = nombre
 
-        while True:
-            if opciones == 1:
-                print("opcion 1")
-            elif opciones == 2:
-                print("opcion 2")
-            elif opciones == 3:
-                print("opcion 3")
-            elif opciones == 4:
-                break
-            else:
-                break    
+    def tomar_pedido (self, variedad):
+        self.variedad = variedad.Pizza
+        self.pizzas_por_cocinar.append(self.variedad)
 
-    def establecer_nombre (self, nom):
-        self.nombre = nom
+    def cocinar (self):
+        self.obtener_pizzas_por_entregar.appen(self.pizzas_por_cocinar)
 
-    def tomar_pedido (self, var):
-        self.var = var.Pizza(input("Ingrese una pizza: "))
-        self.pizzas_por_cocinar.append(self.var)
-    
-    
-
-
-    def cocinar ():
-        pass
 
     def entregar ():
         pass
@@ -46,14 +29,8 @@ class Maestro_pizzero :
     def obtener_pizzas_por_entregar ():
         """Pizza []"""
         pass
-pizzero = Maestro_pizzero("pipo")
-pizzero.establecer_nombre("hola")
-print(pizzero)  
-id(pizzero)
-pizzero.pizzas_por_entregar
-print()
-#pizzero.nombre("")
-Maestro_pizzero.tomar_pedido(pizzero, "fff")
+
+
 
 
 
