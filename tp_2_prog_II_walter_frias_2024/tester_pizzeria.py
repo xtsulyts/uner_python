@@ -1,49 +1,80 @@
-from  maestro_pizzero import  Maestro_pizzero
-from  mozo import Mozo
+# Construya un programa utilizando las clases proveedoras presentadas en los puntos 1,
+# 2 y 3 que permita:
+# a. Crear objetos de tipo MaestroPizzero, Mozo y Pizza.
+# i. Para una exacta representación de nuestra pizzería, debe limitarse a un
+# único objeto de tipo MaestroPizzero y dos objetos de la clase Mozo.
+# b. Enviar los mensajes tomarPedido, cocinar y entregar al objeto de la clase
+# MaestroPizzero.
+# c. Enviar los mensajes tomarPizzas y servirPIzzas a los objetos de la clase Mozo
+# creados en el punto a.
+# Para la construcción de dicho programa crear una clase de nombre TesterPizzeria
+# que actúe como cliente de las clases proveedoras MaestroPizzero, Mozo y Pizza, cuyo
+# único servicio sea de nombre main, que ejecute los puntos descriptos anteriormente.
+
+from maestro_pizzero import Maestro_pizzero
+from mozo import Mozo
 from pizza import Pizza
-class Tester_pizzeria:
+
+class TesterPizzeria:
+    @staticmethod
     def main():
-        pizza = Pizza("NAPO")
+        # a) Se crean los objetos de tipo MaestroPizzero y Mozo
         pizzero = Maestro_pizzero("PIPO")
-        mozo1 = Mozo("CARLOS")
-        mozo2 = Mozo("JUAN")
-        print(f"El nombre del pizzero es {pizzero.nombre}")
-        print(f"El nombre del mozo es {mozo1.nombre}")
-        print(f"El nombre del mozo es {mozo2.nombre}")
-        print(pizzero)
+        # mozo1 = Mozo("Gustavo")
+        # mozo2 = Mozo("Leonardo")
 
+# Para realizar el ejercicio 4 del TP2 se instancian los objetos y se contestan las preguntas solicitadas en el 
+# archivo denominado integrantes.pdf:
+        mozo1 = Mozo('Alfredo')
+        mozo2 = Mozo('Alfredo')
+
+# A continuación, se muestra el menú de opciones
         while True:
-            print("  1 Tomar pedido Mozo 1","\n"," 2 ??????","\n", " 4 o mas Salir")
-            opciones = int(input("Ingrese una opcion: "))
+            print("\nMenu:")
+            print(" 1. Tomar pedido Pizzero.")
+            print(" 2. Ver pizzas por cocinar.")
+            print(" 3. Cocinar pizzas.")
+            print(" 4. Ver pizzas por entregar.")
+            print(" 5. Entregar pizzas con mozo1.")
+            print(" 6. Entregar pizzas con mozo2.")
+            print(" 7. Salir.")
 
-            if opciones == 1:
-                tomar_ped_piz = Pizza(input("opcion 1 tomar pedido: "))
-                print(tomar_ped_piz)
-                print(id(tomar_ped_piz))
+            # Validación de la entrada para evitar que un valor no numérico cause un error
+            try:
+                opcion = int(input("Ingrese una opción: "))
+            except ValueError:
+                print("Entrada no válida. Por favor ingrese un número.")
+                continue  # Regresa al inicio del loop para pedir la opción de nuevo
 
-                pizzero.pizzas_por_cocinar.append(tomar_ped_piz.variedad)
-                print(f"Las pizzas por cocinar : {pizzero.pizzas_por_cocinar}")
-                order_de_pizzas = pizzero.pizzas_por_cocinar[0]
-                pizzero.pizzas_por_cocinar.remove(order_de_pizzas)
-                pizzero.pizzas_por_entregar.append(order_de_pizzas)
-                print(f"Las pizzas poe entregar: {pizzero.pizzas_por_entregar}")
+            if opcion == 1:
+                pizzero.tomar_pedido()
 
+            elif opcion == 2:
+                pizzero.obtener_pizzas_por_cocinar()
 
-            elif opciones == 2:
-                pass
-            elif opciones == 3:
-               pass
-            elif opciones == 4:
-                pass
+            elif opcion == 3:
+                pizzero.cocinar()
 
-            else:
+            elif opcion == 4:
+                pizzero.obtener_pizzas_por_entregar()
+
+            elif opcion == 5:
+                mozo1.tomar_pizzas(pizzero.pizzas_por_entregar)
+                mozo1.servir_pizzas()
+                pizzero.obtener_pizzas_por_entregar()
+
+            elif opcion == 6:
+                mozo2.tomar_pizzas(pizzero.pizzas_por_entregar)
+                mozo2.servir_pizzas()
+                pizzero.obtener_pizzas_por_entregar()
+
+            elif opcion == 7:
+                print("Saliendo del programa...")
                 break
 
-
-
-
-
+            else:
+                print("Opción no válida, por favor elija una opción del 1 al 7.")
 
 if __name__ == '__main__':
-    tester_pizeria = Tester_pizzeria
-    tester_pizeria.main()
+    testerPizzeria = TesterPizzeria()
+    TesterPizzeria.main()
