@@ -22,10 +22,10 @@ class TesterPizzeria:
             print(" 1. Tomar pedido Pizzero.")
             print(" 2. Ver pizzas por cocinar.")
             print(" 3. Cocinar pizzas.")
-            print(" 4. Ver pizzas por entregar.")
-            print(" 5. Entregar pizzas con mozo1.")
-            print(" 6. Entregar pizzas con mozo2.")
-            print(" 7. Salir.")
+            #print(" 4. Ver pizzas por entregar.")
+            #print(" 5. Entregar pizzas con mozo1.")
+            #print(" 6. Entregar pizzas con mozo2.")
+            #print(" 7. Salir.")
 
             # Validación de la entrada para evitar que un valor no numérico cause un error
             try:

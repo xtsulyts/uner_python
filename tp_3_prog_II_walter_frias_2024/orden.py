@@ -32,7 +32,7 @@ class Orden :
     """CONSULTAS"""
 
 
-    def obtener_nro_order (self):
+    def obtener_nro_orden (self):
         return self.num_orden
 
     def obtener_pizzas (self): 

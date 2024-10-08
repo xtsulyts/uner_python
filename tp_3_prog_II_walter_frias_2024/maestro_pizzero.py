@@ -23,16 +23,21 @@ class Maestro_pizzero:
         self.ordenes_por_cocinar.append(nro)                                                                                        
         #orden.establecer_nro_orden(nro)
         #orden.establecer_pizzas(variedad)
-        print(f"Pizzas por cocinar: {[p.obtener_variedad() for p in self.pizzas_por_cocinar]}")
+        print(f"orden: {nro}, estado: {orden.ESTADO_INICIAL}: {variedad.var}")
+        #print(f"Pizzas por cocinar: {[p.obtener_variedad() for p in self.pizzas_por_cocinar]}")
 
 # Cocina la primera pizza en la lista de pizzas por cocinar
     def cocinar(self):
     
         
         if self.pizzas_por_cocinar:
+            orden_cocinada = self.ordenes_por_cocinar.pop(0)
+            self.pizzas_por_cocinar.append(orden_cocinada)
             pizza_cocinada = self.pizzas_por_cocinar.pop(0)
             self.pizza_cocinada.append(pizza_cocinada)
-            print(f"Se ha cocinado: {pizza_cocinada.obtener_variedad()}")
+            #print(f"Orden {self.ordenes_por_cocinar[0]}Se ha cocinado: {pizza_cocinada.obtener_variedad()}")
+            print(f"Orden:{orden_cocinada}, estado: {Orden.ESTADO_PARA_ENTREGAR} se cocinaron: {pizza_cocinada.obtener_variedad()}")
+
             
 # Se obtiene el nombre del maestro pizzero
     def obtener_nombre (self):
