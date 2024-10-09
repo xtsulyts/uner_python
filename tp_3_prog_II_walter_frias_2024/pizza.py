@@ -13,7 +13,7 @@ class Pizza:
 
 
     def establecer_variedad(self, var: str):
-        self.__variedad = Pizza_variedad(var, 10000)
+        self.__variedad = var
 
         self.__variedad = var
 

@@ -27,8 +27,9 @@ class Maestro_pizzero:
         #orden.est.ablecer_nro_orden(nro)
         #orden.establecer_pizzas(variedad)
         print(f"imprimo desde Orden: {orden.obtener_nro_orden()}")
-        print(f"orden: {nro}, estado: {orden.ESTADO_INICIAL}, pizzas:  {variedad.establecer_variedad(var)}")
-        #print(f"Pizzas por cocinar: {[p.obtener_variedad() for p in self.pizzas_por_cocinar]}")
+        print(f"orden: {nro}, estado: {orden.ESTADO_INICIAL}, pizzas: {var}")
+        #print(f"orden: {nro}, estado: {orden.ESTADO_INICIAL}, pizzas:{orden.establecer_pizzas(variedad.establecer_variedad(var))}")
+        
 
 # Cocina la primera pizza en la lista de pizzas por cocinar
     def cocinar(self):
