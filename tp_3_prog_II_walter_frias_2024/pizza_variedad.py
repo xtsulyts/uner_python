@@ -4,13 +4,15 @@ class Pizza_variedad :
         self.pre = pre
     
     def establecer_nombre_variedad (self, nom_var : str):
+        var = input("Ingrese el nombre de la pizza: ")
         self.nombre_var = nom_var
+        nom_var = var
     
     def establecer_precio (self, pre : int):
         self.pre = pre
     
     def obtener_nombre (self):
-        return self.nombre_var
+        return print(f"imprimo desde Pizza_variedad, nom_var: {self.nombre_var}")
     
     def obtener_precio (self):
-        return self.pre
+        return print(f"imprimo desde Pizza_variedad, pre: {self.pre}")

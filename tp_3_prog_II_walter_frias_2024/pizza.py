@@ -1,18 +1,32 @@
 
 
-class Pizza :
-     # Almacena la variedad de la pizza
-    def __init__(self, var):
-        self.var = var
-    
-    # Permite cambiar la variedad de la pizza   
-    def establecer_variedad (self, var):
-        self.var = var
+from pizza_variedad import Pizza_variedad
 
-    # Devuelve la variedad de la pizza
-    def  obtener_variedad (self):
-        return self.var
+class Pizza:
+
+    ESTADO_POR_COCINAR = 1
+    ESTADO_COCINADA = 2
+    ESTADO_ENTREGADA = 3
+
+    def __init__(self, var: str):
+        self.__variedad = var
+
+
+    def establecer_variedad(self, var: str):
+        self.__variedad = Pizza_variedad(var, 10000)
+
+        self.__variedad = var
+
+    def establecer_estado_interno (self, estado: int):
+        self.estado = estado
+
+    def obtener_variedad(self):
+        return (f"imprimo desde Pizzaz: {self.__variedad}")
     
+    def  ontener_estado_interno (self):
+        return self.estado
+    def __repr__(self):
+        return self.__variedad
 
 
 

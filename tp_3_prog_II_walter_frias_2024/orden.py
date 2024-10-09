@@ -8,7 +8,7 @@ class Orden :
     def __init__(self, num_orden: int, pizzas): 
         self.num_orden = num_orden
         self.pizzas = pizzas
-        pizzas = []
+        
         self.estado_orden = 1
 
     """COMANDOS"""

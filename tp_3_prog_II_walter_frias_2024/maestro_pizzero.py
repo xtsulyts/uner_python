@@ -1,5 +1,7 @@
 from orden import Orden
 from pizza import Pizza 
+#eth18 primer clase de ethereum
+
 
 # Se inicializan el nombre del maestro pizzero y dos listas donde se van a almacenar  las pizzas aún no cocinadas 
 class Maestro_pizzero:
@@ -18,12 +20,14 @@ class Maestro_pizzero:
         nro = int(input ("Igrese el numero de orden: "))
         var = input("Ingrese la variedad de pizza: ") 
         variedad = Pizza(var) 
-        orden = Orden(nro,variedad.establecer_variedad(var)) 
-        self.pizzas_por_cocinar.append(variedad)
-        self.ordenes_por_cocinar.append(nro)                                                                                        
-        #orden.establecer_nro_orden(nro)
+        orden = Orden(nro, var)#variedad.establecer_variedad(var) 
+        #self.pizzas_por_cocinar.append(variedad)
+        self.ordenes_por_cocinar.append(f"Orden: {nro}, Estado: {orden.ESTADO_INICIAL}")  
+        self.ordenes_por_cocinar.append(f"Pizzas: {var}")                                                                                   
+        #orden.est.ablecer_nro_orden(nro)
         #orden.establecer_pizzas(variedad)
-        print(f"orden: {nro}, estado: {orden.ESTADO_INICIAL}: {variedad.var}")
+        print(f"imprimo desde Orden: {orden.obtener_nro_orden()}")
+        print(f"orden: {nro}, estado: {orden.ESTADO_INICIAL}, pizzas:  {variedad.establecer_variedad(var)}")
         #print(f"Pizzas por cocinar: {[p.obtener_variedad() for p in self.pizzas_por_cocinar]}")
 
 # Cocina la primera pizza en la lista de pizzas por cocinar
@@ -49,5 +53,8 @@ class Maestro_pizzero:
         print(f"Pizzas por cocinar: {[p.obtener_variedad() for p in self.pizzas_por_cocinar]}")
 
 # Se muestran las pizzas que ya han sido cocinadas y están listas para ser servidas
-    def obtener_pizzas_por_entregar(self):
-        print(f"Pizzas por entregar: {[p.obtener_variedad() for p in self.pizzas_por_cocinar]}")
+    def obtener_orden_por_entregar(self):
+        return print(self.ordenes_por_cocinar)
+    
+   
+        #print(f"Pizzs por entregar: {[p.obtener_variedad() for p in self.pizzas_por_cocinar]}")
