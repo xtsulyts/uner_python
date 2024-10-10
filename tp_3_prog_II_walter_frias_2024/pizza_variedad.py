@@ -12,7 +12,7 @@ class Pizza_variedad :
         self.pre = pre
     
     def obtener_nombre (self):
-        return print(f"imprimo desde Pizza_variedad, nom_var: {self.nombre_var}")
+        return self.nombre_var
     
     def obtener_precio (self):
-        return print(f"imprimo desde Pizza_variedad, pre: {self.pre}")
+        return self.pre

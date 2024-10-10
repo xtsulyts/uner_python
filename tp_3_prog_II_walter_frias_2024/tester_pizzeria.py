@@ -3,7 +3,7 @@ from maestro_pizzero import Maestro_pizzero
 from mozo import Mozo
 from pizza import Pizza
 from pizza_variedad import Pizza_variedad
-
+from orden import Orden
 class TesterPizzeria:
     @staticmethod
     def main():
@@ -11,15 +11,18 @@ class TesterPizzeria:
         pizzero = Maestro_pizzero("PIPO")
         mozo1 = Mozo('Alfredo')
         mozo2 = Mozo('Alfredo')
-        variedad_1 = Pizza_variedad("muzza", 10000)
-        pizza = Pizza
+        variedad_1 = Pizza_variedad("muzza", 5000)
+        pizza_1 = Pizza(variedad_1)
+        print(variedad_1.obtener_precio())
+        print(pizza_1.obtener_variedad().obtener_nombre())
+ 
         
 
 # A continuación, se muestra el menú de opciones
         while True:
             print("\nMenu:")
-            print(" 1. Tomar pedido Pizzero.")
-            print(" 2. Ver pizzas por cocinar.")
+            print(" 1. Crear una orden. ")
+            print(" 2. Agregar pizzas a la orden.")
             print(" 3. Cocinar pizzas.")
             #print(" 4. Ver pizzas por entregar.")
             #print(" 5. Entregar pizzas con mozo1.")
@@ -34,10 +37,23 @@ class TesterPizzeria:
                 continue  # Regresa al inicio del loop para pedir la opción de nuevo
 
             if opcion == 1:
-                pizzero.tomar_pedido(1)
+                n_orden = int(input("Ingrese nro de orden"))
+                if n_orden == 1:
+                    pizzaa = Pizza(variedad_1)
+                    orden = Orden(n_orden, pizzaa)
+                    print(orden.obtener_nro_orden())
+                    print(orden.obtener_pizzas().obtener_variedad())
+
+
 
             elif opcion == 2:
-                pizzero.obtener_orden_por_entregar()
+              while True:
+                  print("Opciones de piizza")
+                  print("1. muzzaz, precio $5000")
+                  opciones = int(input("elija una opcion"))
+                  if opciones == 1:
+                      orden = 
+
 
             elif opcion == 3:
                 pizzero.cocinar()

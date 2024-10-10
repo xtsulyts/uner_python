@@ -15,7 +15,7 @@ class Maestro_pizzero:
     def establecer_nombre (self, nom):
         self.nom = nom
 
-# Se toma el pedido del cliente y se ingresa la variedad de pizza
+# Se toma el pedido del cliente y se ingresa la variedad de pizzaKO
     def tomar_pedido(self, orden):
         nro = int(input ("Igrese el numero de orden: "))
         var = input("Ingrese la variedad de pizza: ") 

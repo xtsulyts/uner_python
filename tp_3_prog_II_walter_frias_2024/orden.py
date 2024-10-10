@@ -17,7 +17,8 @@ class Orden :
         self.num_orden = num_orden
 
     def establecer_pizzas (self, pizzas: Pizza):
-        self.pizzas = pizzas
+        if self.pizzas == 1:
+            self_pizzas = pizza_1
 
     def establecer_estado (self, estado: int):
         self.estado = estado
