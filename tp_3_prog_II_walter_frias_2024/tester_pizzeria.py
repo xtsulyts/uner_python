@@ -14,7 +14,9 @@ class TesterPizzeria:
         variedad_1 = Pizza_variedad("muzza", 5000)
         pizza_1 = Pizza(variedad_1)
         print(variedad_1.obtener_precio())
-        print(pizza_1.obtener_variedad().obtener_nombre())
+        #print(pizza_1.obtener_variedad().obtener_nombre())
+        variedad_2 =Pizza_variedad("napo",  7000)
+      
  
         
 
@@ -39,24 +41,32 @@ class TesterPizzeria:
             if opcion == 1:
                 n_orden = int(input("Ingrese nro de orden"))
                 if n_orden == 1:
-                    pizzaa = Pizza(variedad_1)
-                    orden = Orden(n_orden, pizzaa)
-                    print(orden.obtener_nro_orden())
+                    #pizza_1 = Pizza(variedad_1)
+                    orden = Orden(n_orden, pizza_1)
                     print(orden.obtener_pizzas().obtener_variedad())
 
 
 
             elif opcion == 2:
               while True:
-                  print("Opciones de piizza")
+                  print("Opciones de piizza.")
                   print("1. muzzaz, precio $5000")
-                  opciones = int(input("elija una opcion"))
+                  print("2. nappo, precio $7000")
+                  opciones = int(input("elija una opcion: "))
                   if opciones == 1:
-                      orden = 
+                      pizza_1 = Pizza(variedad_1)
+                      print(pizza_1.obtener_variedad().obtener_nombre())
 
 
-            elif opcion == 3:
-                pizzero.cocinar()
+                  elif opciones == 2:
+                       pizza_2 = Pizza(variedad_2)
+                       print(pizza_2.obtener_variedad().obtener_nombre())
+                  
+                  elif opciones == 9:
+                      break
+                 
+
+               
 
             elif opcion == 4:
                 variedad_1.obtener_precio()
