@@ -43,9 +43,7 @@ class Vinoteca:
         Vinoteca.__bodegas = data.get("bodegas", [])
         Vinoteca.__cepas = data.get("cepas", [])
         Vinoteca.__vinos = data.get("vinos", [])
-    # def cargarDatos(self):
-    #     # Método público para llamar a la función de llenado de listas
-    #     self.__convertirJsonAListas()
+        
 
     def obtenerBodegas(orden=None, reverso=False):
         if isinstance(orden, str):
