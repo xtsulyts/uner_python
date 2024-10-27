@@ -12,3 +12,5 @@ class EntidadVineria:
     
     def obtenerNombre(self):
         return self.nombre
+    def __eq__(self, id):
+        pass
