@@ -18,11 +18,14 @@ class Vinoteca:
     def inicializar(datos):
         datos = Vinoteca.__parsearArchivoDeDatos()
         Vinoteca.__convertirJsonAListas(datos)
-        print("#########################################")
+        print("========================================")
+        print("======BODEGAS======")
         print(Vinoteca.__bodegas)
-        print("#########################################")
+        print("========================================")
+        print("======CEPAS======")
         print(Vinoteca.__cepas)
-        print("#########################################")
+        print("========================================")
+        print("======VINOS======")
         print(Vinoteca.__vinos)
 
     def __parsearArchivoDeDatos():
@@ -37,21 +40,20 @@ class Vinoteca:
 
     def __convertirJsonAListas(data):
         # Llama a __parsearArchivoDeDatos para obtener los datos
-        data = Vinoteca.__parsearArchivoDeDatos()
+        #data = Vinoteca.__parsearArchivoDeDatos()
 
         # Llenar las listas privadas con los datos del diccionario
         Vinoteca.__bodegas = data.get("bodegas", [])
         Vinoteca.__cepas = data.get("cepas", [])
-        Vinoteca.__vinos = data.get("vinos", [])
-        
+        #Vinoteca.__vinos = data.get("vinos", [])
+
 
     def obtenerBodegas(orden=None, reverso=False):
         if isinstance(orden, str):
             if orden == "nombre":
-                return  Vinoteca.__bodegas
+                return 
             elif orden == "vinos":
-                return str
-        pass  # completar
+                pass
 
     def obtenerCepas(orden=None, reverso=False):
         if isinstance(orden, str):
@@ -62,9 +64,7 @@ class Vinoteca:
     def obtenerVinos(anio=None, orden=None, reverso=False):
         if isinstance(anio, int):
             if orden == anio:
-                for anio in Vinoteca.__vinos:
-                    return Vinoteca.__vinos
-
+              pass
         if isinstance(orden, str):
             if orden == "nombre":
                 pass  # completar
