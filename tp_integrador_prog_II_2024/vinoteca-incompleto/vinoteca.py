@@ -19,15 +19,15 @@ class Vinoteca:
     def inicializar(datos):
         datos = Vinoteca.__parsearArchivoDeDatos()
         Vinoteca.__convertirJsonAListas(datos)
-        print("========================================")
-        print("======BODEGAS======")
-        print(Vinoteca.__bodegas)
-        print("========================================")
-        print("======CEPAS======")
-        print(Vinoteca.__cepas)
-        print("========================================")
-        print("======VINOS======")
-        print(Vinoteca.__vinos)
+        # print("========================================")
+        # print("======BODEGAS======")
+        # print(Vinoteca.__bodegas)
+        # print("========================================")
+        # print("======CEPAS======")
+        # print(Vinoteca.__cepas)
+        # print("========================================")
+        # print("======VINOS======")
+        # print(Vinoteca.__vinos)
 
     def __parsearArchivoDeDatos():
         try:
@@ -61,12 +61,15 @@ class Vinoteca:
             print("nombre", diccionario["nombre"][:], "id", diccionario["id"][:])
        
 
-    def obtenerCepas(self):
+    def obtenerCepas(orden=None, reverso=False):
         print("===CEPAS===")
+        # if isinstance(orden, str):
+        #     if orden == "nombre":
+        
         for diccionario in Vinoteca.__cepas:
             print("nombre", diccionario["nombre"][:],
-                  "id", diccionario["id"][:], 
-                  "partidas", diccionario["partidas"][:])
+                 "id", diccionario["id"][:],) 
+                  #"partidas", diccionario["partidas"][:])
 
 
    
@@ -84,15 +87,16 @@ class Vinoteca:
     # def obtenerVinos(anio=None, orden=None, reverso=False):
     #     if isinstance(anio, int):
     #         if orden == anio:
-    #           pass
-    #     if isinstance(orden, str):
-    #         if orden == "nombre":
-    #             pass  # completar
-    #         elif orden == "bodega":
-    #             pass  # completar
-    #         elif orden == "cepas":
-    #             pass  # completar
-    #     pass  # completar
+    #           for diccionario in Vinoteca.__vinos:
+    #              print( diccionario["nombre"][:])
+        # if isinstance(orden, str):
+        #     if orden == "nombre":
+        #         pass  # completar
+        #     elif orden == "bodega":
+        #         pass  # completar
+        #     elif orden == "cepas":
+        #         pass  # completar
+        # pass  # completar
 
     def buscarBodega(id):
         pass  # completar
