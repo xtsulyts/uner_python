@@ -1,19 +1,20 @@
 # librerias
 import os
 import json
+#import modelos.entidad_vineria import EntidadVineria
 
 # modelos
-# from modelos.bodega import Bodega
-# from modelos.cepa import Cepa
-# from modelos.vino import Vino
+from modelos.bodega import Bodega
+from modelos.cepa import Cepa
+from modelos.vino import Vino
 
 
 class Vinoteca:
 
     __archivoDeDatos = "vinoteca.json"
-    __bodegas = []
-    __cepas = []
-    __vinos = []
+    # __bodegas = Bodega("nombre",[])
+    # __cepas = Cepa("nombre",[])
+    # __vinos = []
 
     def inicializar(datos):
         datos = Vinoteca.__parsearArchivoDeDatos()
@@ -45,34 +46,53 @@ class Vinoteca:
         # Llenar las listas privadas con los datos del diccionario
         Vinoteca.__bodegas = data.get("bodegas", [])
         Vinoteca.__cepas = data.get("cepas", [])
-        #Vinoteca.__vinos = data.get("vinos", [])
+        Vinoteca.__vinos = data.get("vinos", [])
 
 
-    def obtenerBodegas(orden=None, reverso=False):
-        if isinstance(orden, str):
-            if orden == "nombre":
-                return 
-            elif orden == "vinos":
-                pass
+    # def obtenerBodegas(orden=None, reverso=False):
+    #     if isinstance(orden, str):
+    #         if orden == "nombre":
+    #             ver_bodega = Vinoteca.__bodegas[1][2]
+    #             print(ver_bodega)
+    
+    def obtenerBodegas(self):
+        print("===BODEGAS===")
+        for diccionario in Vinoteca.__bodegas:
+            print("nombre", diccionario["nombre"][:], "id", diccionario["id"][:])
+       
 
-    def obtenerCepas(orden=None, reverso=False):
-        if isinstance(orden, str):
-            if orden == "nombre":
-                return Vinoteca.__cepas
+    def obtenerCepas(self):
+        print("===CEPAS===")
+        for diccionario in Vinoteca.__cepas:
+            print("nombre", diccionario["nombre"][:],
+                  "id", diccionario["id"][:], 
+                  "partidas", diccionario["partidas"][:])
+
+
+   
+
+    # def obtenerCepas(orden=None, reverso=False):
+    #     if isinstance(orden, str):
+    #         if orden == "nombre":
+    #             return Vinoteca.__cepas
             
+    def obtenerVinos(self):
+        print("====VINOS===")
+        for diccionario in Vinoteca.__vinos:
+            print("nombre", diccionario["nombre"][:], "id", diccionario["id"][:])
 
-    def obtenerVinos(anio=None, orden=None, reverso=False):
-        if isinstance(anio, int):
-            if orden == anio:
-              pass
-        if isinstance(orden, str):
-            if orden == "nombre":
-                pass  # completar
-            elif orden == "bodega":
-                pass  # completar
-            elif orden == "cepas":
-                pass  # completar
-        pass  # completar
+    # def obtenerVinos(anio=None, orden=None, reverso=False):
+    #     if isinstance(anio, int):
+    #         if orden == anio:
+    #           pass
+    #     if isinstance(orden, str):
+    #         if orden == "nombre":
+    #             pass  # completar
+    #         elif orden == "bodega":
+    #             pass  # completar
+    #         elif orden == "cepas":
+    #             pass  # completar
+    #     pass  # completar
 
     def buscarBodega(id):
         pass  # completar
@@ -86,6 +106,9 @@ class Vinoteca:
    
 vinoteca_instance = Vinoteca()
 vinoteca_instance.inicializar()
+vinoteca_instance.obtenerBodegas()
+vinoteca_instance.obtenerCepas()
+vinoteca_instance.obtenerVinos()
 
         
 

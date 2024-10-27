@@ -1,10 +1,12 @@
 import json
-from entidad_vineria import EntidadVineria
+#from entidad_vineria import EntidadVineria
 
 
-class Bodega(EntidadVineria):
+class Bodega:
     def __init__(self, id, nombre:str):
-        super().__init__(id, nombre)
+        self.id = id
+        self.nombre = nombre
+       # super().__init__(id, nombre)
 
 
        
