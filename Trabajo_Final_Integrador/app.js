@@ -86,7 +86,7 @@ function cargarDatos(tipo) {
     } else if (tipo === 'cepa') {
         url = 'http://127.0.0.1:5000/api/cepas';  // URL completa    
     } else if (tipo === 'id') {
-        url = 'http://127.0.0.1:5000/api/id';  // URL completa   
+        url = 'http://127.0.0.1:5000/api/cepas/id';  // URL completa   
     }
 
 
