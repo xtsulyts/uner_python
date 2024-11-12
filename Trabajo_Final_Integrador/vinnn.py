@@ -15,74 +15,75 @@ class Vinoteca:
     __cepas = []
     __vinos = []
 
+    def inicializar():
+        datos = Vinoteca.__parsearArchivoDeDatos()
+        Vinoteca.__convertirJsonAListas(datos)
+
     @classmethod
     def obtener_bodegas(cls):
+        print(cls.__bodegas)
         return cls.__bodegas
-    
-    @staticmethod
     def  obtenerBodegas(orden=None, reverso=False):
         for bodega in Vinoteca.obtener_bodegas():
             if isinstance(orden, str):
                 if orden == bodega.nombre:
-                    print(bodega.id)
+                    return bodega
+                    
+   
     
     @classmethod
     def obtener_cepas(cls):
-        return cls.__cepas 
-    
-    @staticmethod
+        return cls.__cepas
     def obtenerCepas(orden=None, reverso=False):
         for cepa in Vinoteca.obtener_cepas():
             if isinstance(orden, str):
                 if orden == cepa.nombre:
                     print(cepa.id)
+                    return (cepa.id)
     
     @classmethod
     def obtener_vinos(cls):
-        return cls.__vinos if cls.__vinos is not None else []
-        
-    @staticmethod
-        
+        print(cls.__vinos)
+        return cls.__vinos
     def obtenerVinos(orden=None, reverso=False):
-       
-         for vino in Vinoteca.obtener_vinos():
+        for vino in Vinoteca.obtener_vinos():     
             if isinstance(orden, str):
-             if orden == vino.nombre:
-                print(f"Nombre: {vino.nombre}\n Bodega: {vino._Vino__bodega}\n Cepas: {vino._Vino__cepas}\n ID: {vino.id}\n {vino._Vino__partidas}")
-            elif vino.obtenerBodega() and orden == vino.obtenerBodega().obtenerNombre():
-                print(f"Bodega: {vino._Vino__bodega}\n Nombre: {vino.nombre}\n Cepas: {vino._Vino__cepas}\n ID: {vino.id}")
-            elif orden in vino._Vino__cepas:
-                print(f"Cepas: {vino._Vino__cepas}\nBodega: {vino._Vino__bodega}\n Nombre: {vino.nombre}\n ID: {vino.id}")
-                   
-    @staticmethod
-    def inicializar():
-        datos = Vinoteca.__parsearArchivoDeDatos()
-        Vinoteca.__convertirJsonAListas(datos)
+                if orden == vino.nombre:
+                    #print(f"Nombre: {vino.nombre}\n Bodega: {vino.bodega}\n Cepas: {vino.cepas}\n ID: {vino.id}\n {vino.partida}")
+                    return vino
+                elif orden == vino.bodega:
+                    #print(f"Bodega: {vino.bodega}\n Nombre: {vino.nombre}\n Cepas: {vino.cepas}\n ID: {vino.id}")
+                    print(vino)
+                    return vino
+                # elif  reverso == "si":
+                #         if isinstance(reverso, str):
+                # # Si reverso es "si", invertimos el orden de la lista
+                #          vinos = list(reversed(vino))
+                #          print(vinos)
+
+                
         
-    @staticmethod
     def buscarBodega(id):
-        for bodega in Vinoteca.__bodegas:
-         if bodega.obtenerId() == id:
-            return bodega
-       
+        for bodega in Vinoteca.obtener_bodegas():
+            if isinstance(id, str):
+                if id == bodega.id:
+                    print(bodega.nombre)
+                    return(bodega.nombre)
 
-    @staticmethod
     def buscarCepa(id):
-        for cepa in Vinoteca.__cepas:
-            if cepa.obtenerId() == id:
-                return cepa
-      
-
-        
-    @staticmethod
+        for cepa in Vinoteca.obtener_cepas():
+            if isinstance(id, str):
+                if id == cepa.id:
+                    print(cepa.nombre)
+                    return(cepa.nombre)
+                  
     def buscarVino(id):
-        for vino in Vinoteca.__vinos:
-         if vino.obtenerId() == id:
-            return vino
-      
-
+        for vino in Vinoteca.obtener_vinos():
+            if isinstance(id, str):
+                if id == vino.id:
+                    print(vino.nombre)
+                    return (vino.nombre)
         
-    @staticmethod
     def __parsearArchivoDeDatos():
         try:
             with open(Vinoteca.__archivoDeDatos, "r", encoding="utf-8") as archivo: # Paso 1: Abrir el archivo con un bloque 'with'
@@ -92,12 +93,12 @@ class Vinoteca:
         except FileNotFoundError:
             print(f"El archivo {Vinoteca.__archivoDeDatos} no fue encontrado.")
             return None
-        
-    @staticmethod
+
     def __convertirJsonAListas(lista):
+        print(lista)
         for bodega in lista["bodegas"]:
              Vinoteca.__bodegas.append(Bodega(bodega["id"], 
-                                             bodega["nombre"],))
+                                              bodega["nombre"],))
 
         for vino in lista["vinos"]:
             Vinoteca.__vinos.append(Vino(vino["id"],
@@ -110,5 +111,16 @@ class Vinoteca:
             Vinoteca.__cepas.append(Cepa(cepa["id"], 
                                          cepa["nombre"]))
 
+v=Vinoteca
+v.inicializar()
+#v.obtenerBodegas( "Bodega Sottano")
+#v.obtenerCepas("Malbec")
+#v.obtenerVinos("Escandalosos")
+#v.obtenerVinos( "Bodega Sottano")
+# v.buscarBodega("a0900e61-0f72-67ae-7e9d-4218da29b7d8")
+# v.buscarCepa("e076a2c8-b1f5-136e-8319-0ee0b5c02091")
+# v.buscarVino("51461f52-89b8-d702-0673-2cc5ac75085c")
+# v.obtener_bodegas()
+v.obtener_vinos()
 
 

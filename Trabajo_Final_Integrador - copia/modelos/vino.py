@@ -5,8 +5,9 @@ class Vino(EntidadVineria):
     def __init__(self, id: str, nombre: str, bodega: str, cepas: list, partidas: list):
         super().__init__(id, nombre)
         self.__bodega = bodega
-        self.__cepas = []
-        self.__partidas = []
+        self.__cepas = cepas
+        self.__partidas = partidas
+
     def obtenerBodega(self):
         from vinoteca import Vinoteca
         bodega = Vinoteca.buscarBodega(self.__bodega)
