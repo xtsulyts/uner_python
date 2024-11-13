@@ -44,6 +44,49 @@ document.addEventListener("DOMContentLoaded", function () {
             listaCepas.innerHTML = listaHTML;
         }
     }
+    function mostrarTarjetaIndividual(datos, tipo) {
+        // Seleccionamos el contenedor de la tarjeta individual
+        const contenedorResultado = document.getElementById("buscador-vinos-id");
+    
+        // Limpiamos cualquier contenido previo
+        contenedorResultado.innerHTML = '';
+    
+        // Creamos un contenedor para la tarjeta
+        const tarjeta = document.createElement('div');
+        tarjeta.classList.add('col-md-4', 'tarjeta-individual'); // Añadir clases de Bootstrap y el estilo personalizado
+    
+        // Dependiendo del tipo, mostramos los datos relevantes
+        if (tipo === 'vinos') {
+            // Vino: nombre, bodega, cepas, y partidas
+            tarjeta.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${datos.nombre}</h5>
+                        <p class="card-text">Bodega: ${datos.bodega}</p>
+                        <p class="card-text">Cepa(s): ${datos.cepas.join(', ')}</p>
+                        <p class="card-text">Partidas: ${datos.partidas.join(', ')}</p>
+                    </div>
+                </div>
+            `;
+        } else if (tipo === 'bodegas' || tipo === 'cepas') {
+            // Bodega o Cepa: solo nombre
+            tarjeta.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.nombre}</h5>
+                        <p class="card-text">ID: ${item.id}</p>
+                    </div>
+                </div>
+            `;
+        }
+    
+        // Añadimos la tarjeta al contenedor de resultados
+        contenedorResultado.appendChild(tarjeta);
+    
+        // Aseguramos que el contenedor sea visible
+        contenedorResultado.classList.remove('d-none');
+    }
+    
 
     // Función para cargar los datos de un tipo específico (vinos, bodegas, cepas)
     function cargarDatos(tipo) {
@@ -67,31 +110,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error('Error al cargar los datos:', error);
             });
     }
-    // Función para cargar los datos de un tipo específico (vinos, bodegas, cepas)
-    function cargarDatosId(tipo) {
-        let url = '';
-        if (tipo === 'id') {
-            //buscadorVinosId.innerHTML = listaHTML;
-            url = 'http://127.0.0.1:5000/api/vinos/id';  // URL para obtener todos los vinos
-        } else if (tipo === 'bodega') {
-            url = 'http://127.0.0.1:5000/api/bodegas';  // URL para obtener todas las bodegas
-        } else if (tipo === 'cepa') {
-            url = 'http://127.0.0.1:5000/api/cepas';  // URL para obtener todas las cepas
-        }
+    
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);  // Ver los datos en la consola
-                mostrarTarjetas(data, tipo);
-            })
-            .catch(error => {
-                console.error('Error al cargar los datos:', error);
-            });
-    }
+    function buscarPorId(event, tipo, id) {
 
-    function buscarPorId(tipo, id) {
-        const url = `http://127.0.0.1:5000/api/${tipo}/${id}`; // URL específica para el tipo e ID
+        console.log("Antes de capturar el ID");
+        //let id = document.getElementById('buscador-vinos-id').value.trim();
+        console.log("ID capturado:", id);
+        let url = `http://127.0.0.1:5000/api/${tipo}/${id}`; // URL específica para el tipo e ID
 
         fetch(url)
             .then(response => {
@@ -111,57 +137,14 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    function mostrarTarjetaIndividual(data, tipo) {
-        // Seleccionamos el contenedor de la tarjeta individual
-        const contenedorResultado = document.getElementById('resultado-vino-id');
-    
-        // Limpiamos cualquier contenido previo
-        contenedorResultado.innerHTML = '';
-    
-        // Creamos un contenedor para la tarjeta
-        const tarjeta = document.createElement('div');
-        tarjeta.classList.add('col-md-4', 'tarjeta-individual'); // Añadir clases de Bootstrap y el estilo personalizado
-    
-        // Dependiendo del tipo, mostramos los datos relevantes
-        if (tipo === 'vinos') {
-            // Vino: nombre, bodega, cepas, y partidas
-            tarjeta.innerHTML = `
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${data.nombre}</h5>
-                        <p class="card-text">Bodega: ${data.bodega}</p>
-                        <p class="card-text">Cepa(s): ${data.cepas.join(', ')}</p>
-                        <p class="card-text">Partidas: ${data.partidas.join(', ')}</p>
-                    </div>
-                </div>
-            `;
-        } else if (tipo === 'bodegas' || tipo === 'cepas') {
-            // Bodega o Cepa: solo nombre
-            tarjeta.innerHTML = `
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${data.nombre}</h5>
-                    </div>
-                </div>
-            `;
-        }
-    
-        // Añadimos la tarjeta al contenedor de resultados
-        contenedorResultado.appendChild(tarjeta);
-    
-        // Aseguramos que el contenedor sea visible
-        contenedorResultado.classList.remove('d-none');
-    }
-    
+
 
     // Cargar los datos inicialmente
     cargarDatos('vino');
     cargarDatos('bodega');
     cargarDatos('cepa');
-    //buscarPorId(tipo, id);
-    cargarDatosId('vino/id');
-    cargarDatos('bodega');
-    cargarDatos('cepa');
+    
+
 
     // Añadir eventos de búsqueda para cada campo de ID
     buscadorVinosId.addEventListener('input', (event) => {
