@@ -67,41 +67,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error('Error al cargar los datos:', error);
             });
     }
-    // Función para cargar los datos de un tipo específico (vinos, bodegas, cepas)
-    function cargarDatosId(tipo) {
-        let url = '';
-        if (tipo === 'id') {
-            //buscadorVinosId.innerHTML = listaHTML;
-            url = 'http://127.0.0.1:5000/api/vinos/id';  // URL para obtener todos los vinos
-        } else if (tipo === 'bodega') {
-            url = 'http://127.0.0.1:5000/api/bodegas';  // URL para obtener todas las bodegas
-        } else if (tipo === 'cepa') {
-            url = 'http://127.0.0.1:5000/api/cepas';  // URL para obtener todas las cepas
-        }
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);  // Ver los datos en la consola
-                mostrarTarjetas(data, tipo);
-            })
-            .catch(error => {
-                console.error('Error al cargar los datos:', error);
-            });
-    }
 
-    function buscarPorId(tipo, id) {
-        const url = `http://127.0.0.1:5000/api/${tipo}/${id}`; // URL específica para el tipo e ID
-
-        fetch(url)
+    function buscarPorId(id, ids) {
+        
+        const url = `http://127.0.0.1:5000/api/${id}/${ids}`; // URL específica para el tipo e ID  
+         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`No se encontró el ${tipo} con ID ${id}`);
+                    throw new Error(`No se encontró el ID ${id}`);
                 }
                 return response.json();
             })
             .then(data => {
-                console.log(`Datos recibidos para ${tipo} con ID ${id}:`, data);
+                console.log(`Datos recibidos con ID ${id}:`, data);
                 // Llama a la función para mostrar esta tarjeta con un estilo único
                 mostrarTarjetaIndividual(data, tipo);
             })
@@ -113,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarTarjetaIndividual(data, tipo) {
         // Seleccionamos el contenedor de la tarjeta individual
-        const contenedorResultado = document.getElementById('resultado-vino-id');
+        const contenedorResultado = document.getElementById('buscador-vino-id');
     
         // Limpiamos cualquier contenido previo
         contenedorResultado.innerHTML = '';
@@ -141,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${data.nombre}</h5>
-                    </div>
+                    </div>as
                 </div>
             `;
         }
@@ -156,10 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Cargar los datos inicialmente
     cargarDatos('vino');
-    cargarDatos('bodega');
-    cargarDatos('cepa');
-    //buscarPorId(tipo, id);
-    cargarDatosId('vino/id');
     cargarDatos('bodega');
     cargarDatos('cepa');
 

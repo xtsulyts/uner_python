@@ -29,32 +29,34 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#cepas">Cepas</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#vinos_id">ID Vinos</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Sección Buscar vinos por ID -->
+    <section id="vinos_id" class="container my-5">
+        <h2>Vinos por ID</h2>
+        <input type="text" class="form-control" id="vinos" placeholder="Buscar Bodega por ID" />
+        <div id="buscador-cepas-id" class="row mt-4">
+            <!-- Aquí se llenarán las tarjetas de bodegas -->
+        </div>
+    </section>
+    
     <!-- Sección Vinos -->
     <section id="vinos" class="container my-5">
         <h2>Vinos</h2>
-        <!-- Campo de búsqueda por ID -->
-        <input type="text" class="form-control" id="buscador-vinos-id" placeholder="Buscar Vino por ID" />
-        <!-- Contenedor de tarjeta individual para la búsqueda por ID -->
-        <div id="resultado-vino-id" class="row mt-4 d-none">
-            <!-- Aquí se mostrará la tarjeta individual para un vino específico -->
-        </div>
-        
         <!-- Contenedor de lista de tarjetas generales -->
         <div id="lista-vinos" class="row mt-4">
             <!-- Las tarjetas de vinos se llenarán dinámicamente aquí -->
         </div>
-        
-        
-        
-
-
     </section>
+
     
+   
     
     <!-- Sección Bodegas -->
     <section id="bodegas" class="container my-5">
