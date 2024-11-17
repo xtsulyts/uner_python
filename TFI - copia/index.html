@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinos, Bodegas y Cepas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Vinos App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="loadData('vinos')">Vinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="loadData('bodegas')">Bodegas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="loadData('cepas')">Cepas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Section for displaying lists -->
+        <div id="list-section" class="row"></div>
+
+        <!-- Section for searching by ID -->
+        <div class="mt-4">
+            <h3>Buscar por ID</h3>
+            <form id="search-form">
+                <div class="mb-3">
+                    <label for="type" class="form-label">Tipo</label>
+                    <select id="type" class="form-select">
+                        <option value="vinos">Vino</option>
+                        <option value="bodegas">Bodega</option>
+                        <option value="cepas">Cepa</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="text" id="id" class="form-control" placeholder="Ingrese el ID">
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+            <div id="detail-section" class="mt-4"></div>
+        </div>
+    </div>
+    <div id="detail-section" class="mt-4">
+        <!-- Aquí se mostrará la tarjeta -->
+    </div>
+   
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        const API_BASE_URL = 'http://127.0.0.1:5000/api';
+
+        // Function to fetch and display list data
+        function loadData(type) {
+            fetch(`${API_BASE_URL}/${type}`)
+                .then(response => response.json())
+                .then(data => {
+                    const listSection = document.getElementById('list-section');
+                    listSection.innerHTML = ''; // Clear previous content
+                    if (type === 'vinos') {
+                        data.vinos.forEach(item => {
+                            listSection.innerHTML += `
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${vino.nombre}</h5>
+                                            <p class="card-text">Bodega ID: ${vino.bodega}</p>
+                                            <p class="card-text">Cepas: ${vino.cepas.join(', ')}</p>
+                                            <p class="card-text">Partidas: ${type.partidas.join(', ')}</p>
+                                        </div>
+                                    </div>
+                                </div>`;
+                        });
+                    } else if (type === 'bodegas') {
+                        data.bodegas.forEach(bodega => {
+                            listSection.innerHTML += `
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${bodega.nombre}</h5>
+                                            <p class="card-text">ID: ${bodega.id}</p>
+                                        </div>
+                                    </div>
+                                </div>`;
+                        });
+                    } else if (type === 'cepas') {
+                        data.cepas.forEach(cepa => {
+                            listSection.innerHTML += `
+                                <div class="col-md-4">
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${cepa.nombre}</h5>
+                                            <p class="card-text">ID: ${cepa.id}</p>
+                                        </div>
+                                    </div>
+                                </div>`;
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Function to fetch and display details by ID
+        document.getElementById('search-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const type = document.getElementById('type').value;
+            const id = document.getElementById('id').value;
+            fetch(`${API_BASE_URL}/${type}/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    const detailSection = document.getElementById('detail-section');
+                    detailSection.innerHTML = `
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">${data.nombre || 'Detalle'}</h5>
+                                <p class="card-text">ID: ${data.id}</p>
+                                ${data.bodega ? `<p class="card-text">Bodega ID: ${data.bodega}</p>` : ''}
+                                ${data.cepas ? `<p class="card-text">Cepas: ${data.cepas.join(', ')}</p>` : ''}
+                                ${data.vinos ? `<p class="card-text">Cepas: ${data.partidas.join(', ')}</p>` : ''}
+                               
+                            </div>
+                        </div>`;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+</body>
+</html>
