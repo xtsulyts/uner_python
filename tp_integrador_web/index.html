@@ -65,54 +65,97 @@
     <!-- Custom JS -->
     <script>
 
-        // Function to fetch and display details by ID
-        document.getElementById('search-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const type = document.getElementById('type').value;
-            const id = document.getElementById('id').value;
-            fetch(`${API_BASE_URL}/${type}/${id}`)
-                .then(response => response.json())
-                .then(data => {
-                    const detailSection = document.getElementById('detail-section');
-                    detailSection.innerHTML = `
-                    <h3>${data.nombre}</h3>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">${data.nombre || 'Detalle'}</h5>
-                                <p class="card-text">ID: ${data.id}</p>
-                                ${data.bodega ? `<p class="card-text">Bodega: ${data.bodega}</p>` : ''}
-                                ${data.cepas ? `<p class="card-text">Cepas: ${data.cepas.join(', ')}</p>` : ''}
-                                ${data.partidas ? `<p class="card-text">Partidas: ${data.partidas.join(', ')}</p>` : ''}
-                            </div>
-                        </div>`;
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        });
-
+// Define la URL base de la API
 const API_BASE_URL = 'http://127.0.0.1:5000/api';
 
-// Function to fetch and display list data
-function loadData(type) {
-    fetch(`${API_BASE_URL}/${type}`)
-        .then(response => response.json())
-        .then(data => {
-            const listSection = document.getElementById('list-section');
-            listSection.innerHTML = ''; // Clear previous content
+/**
+ * Función para manejar el formulario de búsqueda por ID y mostrar detalles.
+ * Se ejecuta al enviar el formulario.
+ */
+document.getElementById('search-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+    console.log('Formulario enviado para buscar detalles por ID.');
 
+    const type = document.getElementById('type').value; // Obtener el tipo (vinos, bodegas, cepas)
+    const id = document.getElementById('id').value; // Obtener el ID del formulario
+
+    // Realiza una solicitud para obtener los detalles por ID
+    fetch(`${API_BASE_URL}/${type}/${id}`)
+        .then(response => {
+            console.log(`Respuesta recibida desde ${API_BASE_URL}/${type}/${id}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Datos obtenidos:', data);
+
+            // Selecciona la sección donde se mostrarán los detalles
+            const detailSection = document.getElementById('detail-section');
+            
+            // Renderiza los datos en la página
+            detailSection.innerHTML = `
+                <h3>${data.nombre || 'Detalle'}</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.nombre || 'Detalle'}</h5>
+                        <p class="card-text">ID: ${data.id}</p>
+                        ${data.bodega ? `<p class="card-text">Bodega: ${data.bodega}</p>` : ''}
+                        ${data.cepas ? `<p class="card-text">Cepas: ${data.cepas.join(', ')}</p>` : ''}
+                        ${data.partidas ? `<p class="card-text">Partidas: ${data.partidas.join(', ')}</p>` : ''}
+                    </div>
+                </div>`;
+            
+            // Mensaje de éxito en el navegador
+            alert('Datos cargados exitosamente.');
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
+
+            // Mensaje de error en el navegador
+            alert('Hubo un problema al cargar los datos. Verifica la consola para más detalles.');
+        });
+});
+
+/**
+ * Función para cargar y mostrar una lista de datos desde la API.
+ * @param {string} type - El tipo de datos a cargar (vinos, bodegas, cepas)
+ */
+function loadData(type) {
+    console.log(`Cargando datos para el tipo: ${type}`);
+
+    // Realiza una solicitud para obtener la lista de datos
+    fetch(`${API_BASE_URL}/${type}`)
+        .then(response => {
+            console.log(`Respuesta recibida desde ${API_BASE_URL}/${type}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Datos obtenidos:', data);
+
+            // Selecciona la sección donde se mostrará la lista
+            const listSection = document.getElementById('list-section');
+            listSection.innerHTML = ''; // Limpia el contenido previo
+
+            // Verifica si la respuesta es una lista válida
             if (Array.isArray(data)) {
+                console.log(`Mostrando ${data.length} elementos.`);
+                
+                // Itera sobre cada elemento de la lista y lo renderiza
                 for (let i = 0; i < data.length; i++) {
                     const item = data[i];
                     
-                    // Render based on type
                     if (type === 'vinos') {
-                       
                         listSection.innerHTML += `
-                            
                             <div class="col-md-4">
                                 <div class="card mb-3">
                                     <div class="card-body">
                                         <h5 class="card-title">${item.nombre}</h5>
-                                        <p class="card-text">id: ${item.id}</p>
+                                        <p class="card-text">ID: ${item.id}</p>
                                         <p class="card-text">Cepas: ${item.cepas.join(', ')}</p>
                                         <p class="card-text">Partidas: ${item.partidas.join(', ')}</p>
                                     </div>
@@ -140,13 +183,22 @@ function loadData(type) {
                             </div>`;
                     }
                 }
+
+                // Mensaje de éxito en el navegador
+                alert('Lista cargada exitosamente.');
             } else {
+                // Si no hay datos o el tipo es inválido
+                console.warn('No se encontraron datos o tipo inválido.');
                 listSection.innerHTML = '<p>No data available or invalid type specified.</p>';
             }
         })
-        .catch(error => console.error('Error fetching data:', error));
-}
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
 
+            // Mensaje de error en el navegador
+            alert('Hubo un problema al cargar la lista. Verifica la consola para más detalles.');
+        });
+}
 
         
     </script>
